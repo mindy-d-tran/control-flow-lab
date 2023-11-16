@@ -48,5 +48,18 @@ const findRadius = (currentCapacity) => {
 console.log(findRadius(weekCapacity));
 
 // Part 3 
-console.log("===== Part 2 =====");
+console.log("===== Part 3 =====");
 
+let originalCapacity = plantGrowthSpace(currentPlants, 0);
+
+try {
+    if(originalCapacity < maxCapacity) {
+        console.log(`Within capacity`);
+    } else {
+        throw "Too much flowers already";
+    }
+} catch(e){
+    console.log(e);
+} finally {
+    console.log(originalCapacity);
+}
