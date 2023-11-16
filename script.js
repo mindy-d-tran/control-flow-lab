@@ -1,5 +1,5 @@
-//Part One
-console.log("===== Part 1 =====")
+//Part 1
+console.log("===== Part 1 =====");
 // Declaring variables
 // contains radius of area the plants
 const plantRadius = 5;
@@ -8,6 +8,7 @@ const maxCapacity = Math.PI * plantRadius ** 2;
 // contains area of one plant 
 const plantArea = 0.8;
 let currentPlants = 20;
+
 // creating functions
 // calculate how many much space the plants will take in x weeks
 const plantGrowthSpace = (plants, weeks) => {
@@ -15,6 +16,7 @@ const plantGrowthSpace = (plants, weeks) => {
     return plants * plantArea * 2 ** weeks;
 }
 
+// tells what to do with the plants;
 function plantDecision (currentSpace) {
     let currentCapacity = currentSpace/ maxCapacity;
     if(currentCapacity >= 0.8) {
@@ -26,12 +28,25 @@ function plantDecision (currentSpace) {
     }
 }
 
-let week1Capacity = plantGrowthSpace(currentPlants, 1);
-let week2Capacity = plantGrowthSpace(currentPlants, 2);
-let week3Capacity = plantGrowthSpace(currentPlants, 3);
+let weekCapacity;
 
-console.log(`${week1Capacity} ${week2Capacity} ${week3Capacity}`);
+for(let i = 1; i <4; i++) {
+    weekCapacity = plantGrowthSpace(currentPlants, i);
+    plantDecision(weekCapacity);
+}
 
-plantDecision(week1Capacity);
-plantDecision(week2Capacity);
-plantDecision(week3Capacity);
+// Part 2 
+console.log("===== Part 2 =====");
+
+currentPlants = 100;
+weekCapacity = plantGrowthSpace(currentPlants, 10);
+
+const findRadius = (currentCapacity) => {
+    return Math.sqrt(currentCapacity/ Math.PI); 
+}
+
+console.log(findRadius(weekCapacity));
+
+// Part 3 
+console.log("===== Part 2 =====");
+
