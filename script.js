@@ -1,12 +1,10 @@
 //Part 1
 console.log("===== Part 1 =====");
 // Declaring variables
-// contains radius of area the plants
 const plantRadius = 5;
-//calculate max capacity of plant area
 const maxCapacity = Math.PI * plantRadius ** 2;
-// contains area of one plant 
 const plantArea = 0.8;
+
 let currentPlants = 20;
 
 // creating functions
@@ -20,17 +18,18 @@ const plantGrowthSpace = (plants, weeks) => {
 function plantDecision (currentSpace) {
     let currentCapacity = currentSpace/ maxCapacity;
     if(currentCapacity > 0.8) {
-        console.log(`Current capacity: ${currentCapacity}. Prune`);
+        console.log(`Current capacity: ${currentCapacity.toFixed(2)}. Prune`);
     } else if(0.8 >= currentCapacity && currentCapacity >= 0.5) {
-        console.log(`Current capacity: ${currentCapacity}. Monitor`);
+        console.log(`Current capacity: ${currentCapacity.toFixed(2)}. Monitor`);
     } else {
-        console.log(`Current capacity: ${currentCapacity}. Plant`);
+        console.log(`Current capacity: ${currentCapacity.toFixed(2)}. Plant`);
     }
 }
 
 let weekCapacity;
 
-for(let i = 1; i <4; i++) {
+// print out results for week 1 - week 3
+for(let i = 1; i < 4; i++) {
     weekCapacity = plantGrowthSpace(currentPlants, i);
     plantDecision(weekCapacity);
 }
@@ -51,15 +50,18 @@ console.log(findRadius(weekCapacity));
 console.log("===== Part 3 =====");
 
 let originalCapacity = plantGrowthSpace(currentPlants, 0);
-
+// tries code
 try {
     if(originalCapacity < maxCapacity) {
         console.log(`Within capacity`);
     } else {
         throw "Too much flowers already";
     }
-} catch(e){
+// shows error to user
+} catch(e) {  
     console.log(e);
+
+// does regardless if there's an error or not
 } finally {
-    console.log(originalCapacity);
+    console.log(`Original Capacity: ${originalCapacity.toFixed(2)}`);
 }
