@@ -19,9 +19,9 @@ const plantGrowthSpace = (plants, weeks) => {
 // tells what to do with the plants;
 function plantDecision (currentSpace) {
     let currentCapacity = currentSpace/ maxCapacity;
-    if(currentCapacity >= 0.8) {
+    if(currentCapacity > 0.8) {
         console.log(`Current capacity: ${currentCapacity}. Prune`);
-    } else if(0.8 > currentCapacity && currentCapacity >= 0.5) {
+    } else if(0.8 >= currentCapacity && currentCapacity >= 0.5) {
         console.log(`Current capacity: ${currentCapacity}. Monitor`);
     } else {
         console.log(`Current capacity: ${currentCapacity}. Plant`);
